@@ -1,7 +1,7 @@
 <?php
 
 echo "<h1>Comentarios de linea </h1>";
-// Comentar en linea
+//  Comentar en linea
 echo "Hola mundo con //";
 
 # Segunda forma de comentar
