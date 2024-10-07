@@ -27,7 +27,8 @@ $peliculas = [
         'qualificacio' => '+13',
         'genere' => 'Acció, Sci-Fi',
         'trailer' => 'https://www.youtube.com/watch?v=vKQiBpx8J0s',
-        'valoracion' => 2
+        'valoracion' => 2,
+        'carusel' => ['https://resizing.flixster.com/1tHZcfMLyW3iwU8mpczhtXqrDEc=/375x210/v2/https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p22804_i_h8_ac.jpg','https://elseptimocritico.wordpress.com/wp-content/uploads/2015/08/the-matrix-wallpaper-the-matrix-movie-film-1999-year-keanu-reeves-neo-mr-tom-anderson1.jpg','https://townsquare.media/site/442/files/2018/05/the-matrix-reloaded.jpg']
     ],
     [
       'id' => 3, 
@@ -41,7 +42,8 @@ $peliculas = [
         'qualificacio' => '+16',
         'genere' => 'Drama',
         'trailer' => 'https://www.youtube.com/watch?v=6hB3S9bIaco',
-        'valoracion' => 5
+        'valoracion' => 5,
+        'carusel' => ['https://m.media-amazon.com/images/M/MV5BNTYxOTYyMzE3NV5BMl5BanBnXkFtZTcwOTMxNDY3Mw@@._V1_.jpg','https://www.hollywoodreporter.com/wp-content/uploads/2018/03/the_shawshank_redemption_-_h_-_1994.jpg?w=1296&h=730&crop=1','https://resizing.flixster.com/tdMXmsVnR-vIj4Q5IACpEZ7O1ak=/fit-in/705x460/v2/https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p15987_v_h8_au.jpg']
     ],
     [
       'id' => 4, 
@@ -55,7 +57,8 @@ $peliculas = [
         'qualificacio' => '+16',
         'genere' => 'Drama, Criminal',
         'trailer' => 'https://www.youtube.com/watch?v=sY1S34973zA',
-        'valoracion' => 1
+        'valoracion' => 1,
+        'carusel' => ['https://static1.srcdn.com/wordpress/wp-content/uploads/2024/03/the-godfather-ending.jpg','https://images.photowall.com/products/51172/the-godfather-leaned-back-michael-corleone.jpg?h=699&q=85','https://wordpress.wbur.org/wp-content/uploads/2020/12/1207_godfather-part-3-1-1000x669.jpg']
     ],
     [
       'id' => 5, 

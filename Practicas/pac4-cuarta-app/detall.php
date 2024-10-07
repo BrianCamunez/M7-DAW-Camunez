@@ -119,41 +119,28 @@ strong {
                     break;
             };
             ?>
-            <div id="carouselExample" class="carousel slide">
-                <div class="carousel-inner">
-                <div class="carousel-item active">
-            <?php
-            $numero = 0;
-            ?>
-            <img src="<?php echo $infoPeli['carusel'][$numero]; ?>" class="d-block w-100" width="200" height="200" alt="Foto1">
-        </div>
-        <div class="carousel-item">
-            <img src="<?php echo $infoPeli['carusel'][$numero]; ?>" class="d-block w-100" width="200" height="200" alt="Foto2">
-        </div>
-        <div class="carousel-item">
-            <img src="<?php echo $infoPeli['carusel'][$numero]; ?>" class="d-block w-100" width="200" height="200" alt="Foto3">
-        </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-                <?php
-                    $numero ++;
-                    ?>
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-                <?php
-                    $numero --;
-                    ?>
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
+       <div id="carouselExample" class="carousel slide mt-4" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <?php foreach ($infoPeli['carusel'] as $index => $image): ?>
+                    <div class="carousel-item <?php echo $index === 0 ? 'active' : ''; ?>">
+                        <img src="<?php echo $image; ?>" class="d-block w-100" alt="Foto <?php echo $index + 1; ?>">
+                    </div>
+                <?php endforeach; ?>
             </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
         </div>
     </div>
 </div>
+</div>
 </body>
 </html>
-
 
                     <!-- echo "<div class='carousel-item active'>";
                     echo "<img src='{$infoPeli['carusel'][0]}' class='d-block w-100' witdh='200px' height='100px' alt='Foto1'>";
