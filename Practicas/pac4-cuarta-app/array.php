@@ -11,7 +11,7 @@ $peliculas = [
         'repartiment' => ['Leonardo DiCaprio', 'Joseph Gordon-Levitt', 'Elliot Page'],
         'qualificacio' => '+13',
         'genere' => 'Acció, Sci-Fi',
-        'trailer' => 'https://www.youtube.com/watch?v=8hP9D6kZseM',
+        'trailer' => 'https://youtu.be/YoHD9XEInc0?si=JLqD63IriGjmUZqn',
         'valoracion' => 3,
         'carusel' => ['https://m.media-amazon.com/images/M/MV5BMTQ1ZmIzOTAtNDcwZi00NDVkLWE4NWItYWNhZGY1MmVlZGU0XkEyXkFqcGdeQWRvb2xpbmhk._V1_.jpg','https://m.media-amazon.com/images/S/pv-target-images/e826ebbcc692b4d19059d24125cf23699067ab621c979612fd0ca11ab42a65cb._SX1080_FMjpg_.jpg','https://img.europapress.es/fotoweb/fotonoticia_20150606095824_690.jpg']
     ],
@@ -41,7 +41,7 @@ $peliculas = [
         'repartiment' => ['Tim Robbins', 'Morgan Freeman', 'Bob Gunton'],
         'qualificacio' => '+16',
         'genere' => 'Drama',
-        'trailer' => 'https://www.youtube.com/watch?v=6hB3S9bIaco',
+        'trailer' => 'https://www.youtube.com/embed/PLl99DlL6b4',
         'valoracion' => 5,
         'carusel' => ['https://m.media-amazon.com/images/M/MV5BNTYxOTYyMzE3NV5BMl5BanBnXkFtZTcwOTMxNDY3Mw@@._V1_.jpg','https://www.hollywoodreporter.com/wp-content/uploads/2018/03/the_shawshank_redemption_-_h_-_1994.jpg?w=1296&h=730&crop=1','https://resizing.flixster.com/tdMXmsVnR-vIj4Q5IACpEZ7O1ak=/fit-in/705x460/v2/https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p15987_v_h8_au.jpg']
     ],
@@ -87,7 +87,67 @@ $peliculas = [
         'genere' => 'Acció, Thriller',
         'trailer' => 'https://www.youtube.com/watch?v=EXeTwQWrcwY',
         'valoracion' => 2
-    ]
+    ],
+    [
+      'id' => 7, 
+      'nom' => 'Forrest Gump',
+      'imatge' => 'https://pics.filmaffinity.com/Forrest_Gump-212765827-large.jpg',
+      'horaris' => ['14:00', '17:00', '20:00'],
+      'sinopsi' => 'La vida d\'un home amb discapacitat intel·lectual que, sense voler-ho, es converteix en testimoni de moments històrics dels anys 60 i 70 a Amèrica.',
+      'durada' => '142 min',
+      'director' => 'Robert Zemeckis',
+      'repartiment' => ['Tom Hanks', 'Robin Wright', 'Gary Sinise'],
+      'qualificacio' => '+13',
+      'genere' => 'Drama, Comèdia',
+      'trailer' => 'https://www.youtube.com/watch?v=bLvqoHBptjg',
+      'valoracion' => 5,
+      'carusel' => ['https://cartelera.elpais.com/assets/uploads/2019/10/18030148/F_11099.jpg', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBiYO-kSb5KgCJO0N9SFUngt53fUUmNA9w5g&s', 'https://resizer.glanacion.com/resizer/v2/se-cumplen-30-anos-del-estreno-de-forrest-gump-en-JVXTQVQFIZCU5HO4S3O6M4SWZA.jpg?auth=fb7039e820dfb24d0069694b34df6847bad0abeb81da904210ff6299f51b8c92&width=768&quality=70&smart=false']
+  ],
+  [
+      'id' => 8, 
+      'nom' => 'Interstellar',
+      'imatge' => 'https://pics.filmaffinity.com/Interstellar-366875261-large.jpg',
+      'horaris' => ['15:00', '18:00', '21:00'],
+      'sinopsi' => 'Un grup d\'astronautes viatja a través d\'un forat de cuc en la recerca d\'un nou planeta habitable per a la humanitat.',
+      'durada' => '169 min',
+      'director' => 'Christopher Nolan',
+      'repartiment' => ['Matthew McConaughey', 'Anne Hathaway', 'Jessica Chastain'],
+      'qualificacio' => '+13',
+      'genere' => 'Sci-Fi, Drama',
+      'trailer' => 'https://www.youtube.com/watch?v=zSWdZVtXT7E',
+      'valoracion' => 4,
+      'carusel' => ['https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/media/image/2024/05/interstellar-obra-maestra-christopher-nolan-estrenara-nuevo-cines-formato-gusta-director-3374730.jpg?tf=3840x', 'https://hips.hearstapps.com/hmg-prod/images/interstellar-1563274942.jpg', 'https://i.blogs.es/25fad9/714563181_preview_interstellar_voyage-3840x2160/1366_2000.jpg']
+  ],
+  [
+      'id' => 9, 
+      'nom' => 'Gladiator',
+      'imatge' => 'https://pics.filmaffinity.com/Gladiator-331143379-large.jpg',
+      'horaris' => ['16:00', '19:00', '22:00'],
+      'sinopsi' => 'Un general romà és traït i venut com a esclau, i lluita per la seva llibertat i venjar la seva família.',
+      'durada' => '155 min',
+      'director' => 'Ridley Scott',
+      'repartiment' => ['Russell Crowe', 'Joaquin Phoenix', 'Connie Nielsen'],
+      'qualificacio' => '+16',
+      'genere' => 'Acció, Drama',
+      'trailer' => 'https://www.youtube.com/watch?v=P5ieIbInFpg',
+      'valoracion' => 4,
+      'carusel' => ['https://filasiete.com/wp-content/uploads/2024/04/gladiator2.jpg', 'https://hips.hearstapps.com/hmg-prod/images/paul-mescal-gladiator-2-668e416f48341.jpg', 'https://lh6.googleusercontent.com/proxy/AwLoizvxJ8POoGh58VBaL3JqZegfBu6fCmnTVrd-HNzithFJjyNcc8jAmEfzRM8NG3-pNXsWqqbDVCI-djSHX7-n6GHa9NccadTFGduiRCu-297BDeHa6UJDXG0']
+  ],
+  [
+      'id' => 10, 
+      'nom' => 'The Silence of the Lambs',
+      'imatge' => 'https://m.media-amazon.com/images/M/MV5BNDdhOGJhYzctYzYwZC00YmI2LWI0MjctYjg4ODdlMDExYjBlXkEyXkFqcGc@._V1_.jpg',
+      'horaris' => ['21:00', '00:00'],
+      'sinopsi' => 'Una jove agent del FBI busca l’ajut d’un assassí en sèrie empresonat per atrapar un altre assassí que està en llibertat.',
+      'durada' => '118 min',
+      'director' => 'Jonathan Demme',
+      'repartiment' => ['Jodie Foster', 'Anthony Hopkins', 'Scott Glenn'],
+      'qualificacio' => '+18',
+      'genere' => 'Thriller, Drama',
+      'trailer' => 'https://www.youtube.com/watch?v=W6V5s1oUVGE',
+      'valoracion' => 5,
+      'carusel' => ['https://m.media-amazon.com/images/M/MV5BN2ZiYzIyMWQtNDUyNy00YmExLWIwNmMtN2FhNzFiODgyYmU4XkEyXkFqcGdeQXRodW1ibmFpbC1pbml0aWFsaXplcg@@._V1_QL75_UY281_CR10,0,500,281_.jpg', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvBdDJuEyXivjmg1f7sucpORi8CrLB39RnmQ&s', 'https://ew.com/thmb/8J_HjFn87mm6_AEU05DCO6vhO3Y=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/silence20of20the20lambs_0-c9cff20e8d054953873bf9bf609d9def.jpg']
+  ]
 ];
 
 ?>
