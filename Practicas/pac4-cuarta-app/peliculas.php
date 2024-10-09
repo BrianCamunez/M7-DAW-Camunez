@@ -40,40 +40,14 @@ include 'array.php';
 ?>
 <body>
   <header>
-    <div class="collapse bg-dark" id="navbarHeader">
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-8 col-md-7 py-4">
-            <h4 class="text-white">About</h4>
-            <p class="text-muted">Add some information about the album below, the author, or any other background
-              context. Make it a few sentences long so folks can pick up some informative tidbits. Then, link them off
-              to some social networking sites or contact information.</p>
-          </div>
-          <div class="col-sm-4 offset-md-1 py-4">
-            <h4 class="text-white">Contact</h4>
-            <ul class="list-unstyled">
-              <li><a href="#" class="text-white">Follow on Twitter</a></li>
-              <li><a href="#" class="text-white">Like on Facebook</a></li>
-              <li><a href="#" class="text-white">Email me</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
     <div class="navbar navbar-dark bg-dark shadow-sm">
       <div class="container">
         <a href="#" class="navbar-brand d-flex align-items-center">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor"
-            stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="mr-2"
-            viewBox="0 0 24 24">
+            <img src="data:image/png;base64,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" alt="Logo" width="30px" height="30px">
             <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" />
             <circle cx="12" cy="13" r="4" /></svg>
-          <strong>Album</strong>
+          <strong>Cinemes Màgic Badalona</strong>
         </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader"
-          aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
       </div>
     </div>
   </header>

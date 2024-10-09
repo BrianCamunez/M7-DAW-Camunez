@@ -11,7 +11,7 @@ $peliculas = [
         'repartiment' => ['Leonardo DiCaprio', 'Joseph Gordon-Levitt', 'Elliot Page'],
         'qualificacio' => '+13',
         'genere' => 'Acció, Sci-Fi',
-        'trailer' => 'https://youtu.be/YoHD9XEInc0?si=JLqD63IriGjmUZqn',
+        'trailer' => '<iframe width="560" height="315" src="https://www.youtube.com/embed/YoHD9XEInc0?si=hfxaNOLN3IGmQkPd?autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
         'valoracion' => 3,
         'carusel' => ['https://m.media-amazon.com/images/M/MV5BMTQ1ZmIzOTAtNDcwZi00NDVkLWE4NWItYWNhZGY1MmVlZGU0XkEyXkFqcGdeQWRvb2xpbmhk._V1_.jpg','https://m.media-amazon.com/images/S/pv-target-images/e826ebbcc692b4d19059d24125cf23699067ab621c979612fd0ca11ab42a65cb._SX1080_FMjpg_.jpg','https://img.europapress.es/fotoweb/fotonoticia_20150606095824_690.jpg']
     ],
@@ -26,7 +26,7 @@ $peliculas = [
         'repartiment' => ['Keanu Reeves', 'Laurence Fishburne', 'Carrie-Anne Moss'],
         'qualificacio' => '+13',
         'genere' => 'Acció, Sci-Fi',
-        'trailer' => 'https://www.youtube.com/watch?v=vKQiBpx8J0s',
+        'trailer' => '<iframe width="560" height="315" src="https://www.youtube.com/embed/vKQi3bBA1y8?si=qvWmWhKkUiq1PXRQ?autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
         'valoracion' => 2,
         'carusel' => ['https://resizing.flixster.com/1tHZcfMLyW3iwU8mpczhtXqrDEc=/375x210/v2/https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p22804_i_h8_ac.jpg','https://elseptimocritico.wordpress.com/wp-content/uploads/2015/08/the-matrix-wallpaper-the-matrix-movie-film-1999-year-keanu-reeves-neo-mr-tom-anderson1.jpg','https://townsquare.media/site/442/files/2018/05/the-matrix-reloaded.jpg']
     ],
@@ -41,7 +41,7 @@ $peliculas = [
         'repartiment' => ['Tim Robbins', 'Morgan Freeman', 'Bob Gunton'],
         'qualificacio' => '+16',
         'genere' => 'Drama',
-        'trailer' => 'https://www.youtube.com/embed/PLl99DlL6b4',
+        'trailer' => '<iframe width="560" height="315" src="https://www.youtube.com/embed/PLl99DlL6b4?si=hsjQF89kDoFCNv-L?autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
         'valoracion' => 5,
         'carusel' => ['https://m.media-amazon.com/images/M/MV5BNTYxOTYyMzE3NV5BMl5BanBnXkFtZTcwOTMxNDY3Mw@@._V1_.jpg','https://www.hollywoodreporter.com/wp-content/uploads/2018/03/the_shawshank_redemption_-_h_-_1994.jpg?w=1296&h=730&crop=1','https://resizing.flixster.com/tdMXmsVnR-vIj4Q5IACpEZ7O1ak=/fit-in/705x460/v2/https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p15987_v_h8_au.jpg']
     ],
@@ -56,7 +56,7 @@ $peliculas = [
         'repartiment' => ['Marlon Brando', 'Al Pacino', 'James Caan'],
         'qualificacio' => '+16',
         'genere' => 'Drama, Criminal',
-        'trailer' => 'https://www.youtube.com/watch?v=sY1S34973zA',
+        'trailer' => '<iframe width="560" height="315" src="https://www.youtube.com/embed/UaVTIH8mujA?si=iX5XIL3JLezSHnwS?autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
         'valoracion' => 1,
         'carusel' => ['https://static1.srcdn.com/wordpress/wp-content/uploads/2024/03/the-godfather-ending.jpg','https://images.photowall.com/products/51172/the-godfather-leaned-back-michael-corleone.jpg?h=699&q=85','https://wordpress.wbur.org/wp-content/uploads/2020/12/1207_godfather-part-3-1-1000x669.jpg']
     ],
@@ -71,7 +71,7 @@ $peliculas = [
         'repartiment' => ['John Travolta', 'Uma Thurman', 'Samuel L. Jackson'],
         'qualificacio' => '+18',
         'genere' => 'Criminal, Drama',
-        'trailer' => 'https://www.youtube.com/watch?v=wZ8F9tqH81U',
+        'trailer' => '<iframe width="560" height="315" src="https://www.youtube.com/embed/tGpTpVyI_OQ?si=wMeuK0HyDSUTLueS?autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
         'valoracion' => 4
     ],
     [
@@ -85,7 +85,7 @@ $peliculas = [
         'repartiment' => ['Christian Bale', 'Heath Ledger', 'Aaron Eckhart'],
         'qualificacio' => '+13',
         'genere' => 'Acció, Thriller',
-        'trailer' => 'https://www.youtube.com/watch?v=EXeTwQWrcwY',
+        'trailer' => '<iframe width="560" height="315" src="https://www.youtube.com/embed/EXeTwQWrcwY?si=tCNcoTv9FFzWwuAr?autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
         'valoracion' => 2
     ],
     [
@@ -99,7 +99,7 @@ $peliculas = [
       'repartiment' => ['Tom Hanks', 'Robin Wright', 'Gary Sinise'],
       'qualificacio' => '+13',
       'genere' => 'Drama, Comèdia',
-      'trailer' => 'https://www.youtube.com/watch?v=bLvqoHBptjg',
+      'trailer' => '<iframe width="560" height="315" src="https://www.youtube.com/embed/bLvqoHBptjg?si=pbWqutgiLJrSlmni?autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
       'valoracion' => 5,
       'carusel' => ['https://cartelera.elpais.com/assets/uploads/2019/10/18030148/F_11099.jpg', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBiYO-kSb5KgCJO0N9SFUngt53fUUmNA9w5g&s', 'https://resizer.glanacion.com/resizer/v2/se-cumplen-30-anos-del-estreno-de-forrest-gump-en-JVXTQVQFIZCU5HO4S3O6M4SWZA.jpg?auth=fb7039e820dfb24d0069694b34df6847bad0abeb81da904210ff6299f51b8c92&width=768&quality=70&smart=false']
   ],
@@ -114,7 +114,7 @@ $peliculas = [
       'repartiment' => ['Matthew McConaughey', 'Anne Hathaway', 'Jessica Chastain'],
       'qualificacio' => '+13',
       'genere' => 'Sci-Fi, Drama',
-      'trailer' => 'https://www.youtube.com/watch?v=zSWdZVtXT7E',
+      'trailer' => '<iframe width="560" height="315" src="https://www.youtube.com/embed/UoSSbmD9vqc?si=aNZj04JohOaE0EAJ?autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
       'valoracion' => 4,
       'carusel' => ['https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/media/image/2024/05/interstellar-obra-maestra-christopher-nolan-estrenara-nuevo-cines-formato-gusta-director-3374730.jpg?tf=3840x', 'https://hips.hearstapps.com/hmg-prod/images/interstellar-1563274942.jpg', 'https://i.blogs.es/25fad9/714563181_preview_interstellar_voyage-3840x2160/1366_2000.jpg']
   ],
@@ -129,7 +129,7 @@ $peliculas = [
       'repartiment' => ['Russell Crowe', 'Joaquin Phoenix', 'Connie Nielsen'],
       'qualificacio' => '+16',
       'genere' => 'Acció, Drama',
-      'trailer' => 'https://www.youtube.com/watch?v=P5ieIbInFpg',
+      'trailer' => '<iframe width="560" height="315" src="https://www.youtube.com/embed/P5ieIbInFpg?si=7JMx0YS5G11SIxOd?autoplay?=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
       'valoracion' => 4,
       'carusel' => ['https://filasiete.com/wp-content/uploads/2024/04/gladiator2.jpg', 'https://hips.hearstapps.com/hmg-prod/images/paul-mescal-gladiator-2-668e416f48341.jpg', 'https://lh6.googleusercontent.com/proxy/AwLoizvxJ8POoGh58VBaL3JqZegfBu6fCmnTVrd-HNzithFJjyNcc8jAmEfzRM8NG3-pNXsWqqbDVCI-djSHX7-n6GHa9NccadTFGduiRCu-297BDeHa6UJDXG0']
   ],
@@ -144,7 +144,7 @@ $peliculas = [
       'repartiment' => ['Jodie Foster', 'Anthony Hopkins', 'Scott Glenn'],
       'qualificacio' => '+18',
       'genere' => 'Thriller, Drama',
-      'trailer' => 'https://www.youtube.com/watch?v=W6V5s1oUVGE',
+      'trailer' => '<iframe width="560" height="315" src="https://www.youtube.com/embed/6iB21hsprAQ?si=txYWypkxaomEOO9n?autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
       'valoracion' => 5,
       'carusel' => ['https://m.media-amazon.com/images/M/MV5BN2ZiYzIyMWQtNDUyNy00YmExLWIwNmMtN2FhNzFiODgyYmU4XkEyXkFqcGdeQXRodW1ibmFpbC1pbml0aWFsaXplcg@@._V1_QL75_UY281_CR10,0,500,281_.jpg', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvBdDJuEyXivjmg1f7sucpORi8CrLB39RnmQ&s', 'https://ew.com/thmb/8J_HjFn87mm6_AEU05DCO6vhO3Y=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/silence20of20the20lambs_0-c9cff20e8d054953873bf9bf609d9def.jpg']
   ]
