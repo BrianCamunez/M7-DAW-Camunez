@@ -6,9 +6,18 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
+    <div>
+        <buttton class='btn btn-primary' style="background-color: blue;" href='ejercicio2.php?colorFondo=azul'>Azul</buttton>
+        <buttton class='btn btn-primary' style="background-color: pink;" href='ejercicio2.php?colorFondo=rosa'>Rosa</buttton>
+        <buttton class='btn btn-primary' style="background-color: yellow;" href='ejercicio2.php?colorFondo=amarillo'>Amarillo</buttton>
+        <buttton class='btn btn-primary' style="background-color: red;" href='ejercicio2.php?colorFondo=rojo'>Rojo</buttton>
+        <buttton class='btn btn-primary' style="background-color: green; " href='ejercicio2.php?colorFondo=verde'>Verde</buttton>
+        <buttton class='btn btn-primary' style="background-color: brown;" href='ejercicio2.php?colorFondo=marron'>Marron</buttton>
+        <?php
+        ?>
+    </div>
     <div class="container mt-5">
         <h1 class="text-center">Selecciona tu fruta favorita</h1>
-
         <table class="table table-bordered mt-4">
             <thead class="thead-dark">
                 <tr>
