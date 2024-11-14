@@ -1,21 +1,26 @@
 <?php
 session_start();
 
-// Datos de usuario predefinidos (esto normalmente se obtendría de una base de datos).
-$usuarios = [
-    ["username" => "admin", "password" => "adminpass", "role" => "admin"],
-    ["username" => "reader", "password" => "readerpass", "role" => "lector"]
-];
-
-// Procesamiento del formulario.
+include_once("arrayUsers.php");
 
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
-    
-}
+    $username = $_POST['Nombre'];
+    $password = $_POST['Password'];
 
-    // Validación de credenciales.
-   
-  
+    foreach($_SESSION['usuarios'] as $usuario){
+        if($usuario['username'] === $username && $usuario['password'] === $password){
+            $role = $usuario['role'];
+            $_SESSION['sesionIniciada'] = [
+                'username' => $username,
+                'role' => $role,
+                'fotoDePerfil' => $_POST['FotoPerfil']
+            ];
+            $usuario_autenticado = true; 
+            header("Location: home.php");
+            exit();
+        }
+    }
+}  
 
 ?>
 
@@ -25,7 +30,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Biblioteca Virtual - Login</title>
-    <link rel="stylesheet" href="style.css"> <!-- Usa el archivo de estilo que acompaña a la estructura de HTML proporcionada -->
+    <link rel="stylesheet" href="./css/style.css"> <!-- Usa el archivo de estilo que acompaña a la estructura de HTML proporcionada -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body>
@@ -41,15 +46,15 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                 <h2>Inicia sesión</h2>
                 <form method="post" action="login.php">
                     <div class="inputBox ">
-                        <input class="p-2 m-2" placeholder="Username" type="text" name="" required>
+                        <input class="p-2 m-2" placeholder="Username" type="text" name="Nombre" required>
                        
                     </div>
                     <div class="inputBox ">
-                        <input class="p-2 m-2" placeholder="Password" type="password" name="" required>
+                        <input class="p-2 m-2" placeholder="Password" type="password" name="Password" required>
                        
                     </div>
                     <div class="inputBox ">
-                        <input class="p-2 m-2" placeholder="Foto de perfil" type="text" name="" required>
+                        <input class="p-2 m-2" placeholder="Foto de perfil" type="text" name="FotoPerfil" required>
                        
                     </div>
                     <?php if (!empty($error)) : ?>
