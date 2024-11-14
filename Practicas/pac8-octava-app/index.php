@@ -6,14 +6,31 @@ include_once("main.php");
 
 $_SESSION['current_room'] = 1;
 
-if(isset($_POST['Nombre']) && isset($_POST['Apellido1']) && isset($_POST['Apellido2']) && isset($_POST['Dificultad'])){
-    $_SESSION['datos'] = [
-        'Nombre' => $_POST['Nombre'],
-        'Apellido1' => $_POST['Apellido1'],
-        'Apellido2' => $_POST['Apellido2'],
-        'Dificultad' => $_POST['Dificultad']
-    ];
-    header('Location: room1.php');
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+  if (isset($_POST['Nombre'], $_POST['Apellido1'], $_POST['Apellido2'], $_POST['Dificultad'])) {
+      $_SESSION['datos'] = [
+          'Nombre' => $_POST['Nombre'],
+          'Apellido1' => $_POST['Apellido1'],
+          'Apellido2' => $_POST['Apellido2'],
+          'Dificultad' => $_POST['Dificultad']
+      ];
+  }
+  // Verificar si se ha subido una foto de perfil
+  if (isset($_FILES['foto_perfil']) && $_FILES['foto_perfil']['error'] == UPLOAD_ERR_OK) {
+    $uploaded_file = $_FILES['foto_perfil'];
+    $target_path = basename($uploaded_file['name']); // Usamos el nombre original del archivo
+
+    // Mover el archivo al directorio actual
+    if (move_uploaded_file($uploaded_file['tmp_name'], $target_path)) {
+        $_SESSION['datos']['FotoPerfil'] = $target_path;
+    } else {
+        $_SESSION['datos']['FotoPerfil'] = 'https://png.pngtree.com/png-vector/20220709/ourmid/pngtree-businessman-user-avatar-wearing-suit-with-red-tie-png-image_5809521.png'; // Imagen por defecto
+    }
+}
+
+  // Redirigir a la página de la sala
+  header("Location: room" . $_SESSION['current_room'] . ".php");
+  exit();
 }
 
 ?>
@@ -39,7 +56,7 @@ if(isset($_POST['Nombre']) && isset($_POST['Apellido1']) && isset($_POST['Apelli
         <h1 class="text-center">Formulario</h1>
       </div>
       <div class="row">
-        <form method="post">
+        <form method="post" enctype="multipart/form-data">
           <div class="mb-3 mt-3">
             <label for="exampleInputNombre1" class="form-label">Nombre</label>
             <input type="text" class="form-control" id="exampleInputNombre1" name="Nombre" required>
@@ -64,6 +81,10 @@ if(isset($_POST['Nombre']) && isset($_POST['Apellido1']) && isset($_POST['Apelli
                 ?>
             </select>
           </div>
+          <div class="mb-3">
+                <label for="foto_perfil" class="form-label">Foto de perfil:</label>
+                <input type="file" name="foto_perfil" id="foto_perfil" class="form-control" accept="image/*">
+            </div>
           <button type="submit" class="btn btn-primary">Submit</button>
         </form>
       </div>

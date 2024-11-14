@@ -2,7 +2,10 @@
 session_start();
 
 include_once("main.php");
-include_once("header.php");
+
+if (!isset($_SESSION['current_room'])) {
+    $_SESSION['current_room'] = 1; 
+}
 
 if (isset($_SESSION['datos'])) {
     $nombre = $_SESSION['datos']['Nombre'];
@@ -15,12 +18,17 @@ $respuesta_usuario = $_POST['respuesta'];
 
 $respuesta_correcta = strtolower($adivinanzas[$dificultad][0]['respuesta']);
 
-if(strtolower($respuesta_usuario) == $respuesta_correcta){
-    $_SESSION['current_room'] = 2;
-    header("Location: room" . $_SESSION['current_room'] . ".php");
-}else{
-    $mensaje = "Te has equivocado";
+if ($respuesta_usuario != '') {
+    if (strtolower($respuesta_usuario) == $respuesta_correcta) {
+        $_SESSION['current_room']++;
+        header("Location: room" . $_SESSION['current_room'] . ".php");
+        exit; 
+    } else {
+        $mensaje = "Te has equivocado";
+    }
 }
+
+include_once("headerRoom.php");
 
 ?>
 
@@ -31,9 +39,28 @@ if(strtolower($respuesta_usuario) == $respuesta_correcta){
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <title>Habitación 1</title>
+    <style>
+         /* Estilo general del body */
+         body {
+            margin: 0;
+        }
+
+        /* Este contenedor es el que tiene el flexbox para centrar solo la card */
+        .main-container {
+            display: flex;
+            justify-content: center; /* Centra horizontalmente */
+            align-items: center;     /* Centra verticalmente */
+            min-height: 80vh; /* Altura mínima para el contenedor de la card (puedes ajustarlo) */
+        }
+
+        .card {
+            width: 22rem; /* Tamaño fijo para la card */
+        }
+    </style>
 </head>
-<body class="d-flex justify-content-center align-items-center vh-100">
-    <div class="card p-4" style="width: 22rem;">
+<body>
+   <div class="main-container">
+   <div class="card p-4" style="width: 22rem;">
         <h2 class="card-title text-center">Habitación 1</h2>
         <p class="card-text"><?php echo $adivinanzas[$dificultad][0]['pregunta']; ?></p>
         <form method="POST">
@@ -42,7 +69,8 @@ if(strtolower($respuesta_usuario) == $respuesta_correcta){
             </div>
             <button type="submit" class="btn btn-success w-100">Enviar</button>
         </form>
-        <?= $mensaje; ?> <!-- Muestra el mensaje de éxito o error -->
+        <?php if (isset($mensaje)) { echo "<p>$mensaje</p>"; } ?>
     </div>
+   </div>
 </body>
 </html>

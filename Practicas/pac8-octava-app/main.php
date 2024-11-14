@@ -12,14 +12,6 @@ $adivinanzas = [
         [
             'pregunta' => '¿Qué es pequeño, verde y salta?',
             'respuesta' => 'Una rana'
-        ],
-        [
-            'pregunta' => '¿Qué es más grande que una casa pero más ligero que una pluma?',
-            'respuesta' => 'Un agujero'
-        ],
-        [
-            'pregunta' => '¿Qué tiene muchas teclas pero no puede abrir ninguna puerta?',
-            'respuesta' => 'Un piano'
         ]
     ],
     'medio' => [
@@ -34,14 +26,6 @@ $adivinanzas = [
         [
             'pregunta' => '¿Qué camina pero nunca habla?',
             'respuesta' => 'El reloj'
-        ],
-        [
-            'pregunta' => '¿Qué tiene cuatro patas por la mañana, dos patas al mediodía y tres patas por la noche?',
-            'respuesta' => 'El ser humano'
-        ],
-        [
-            'pregunta' => '¿Qué tiene cabeza y cola, pero no cuerpo?',
-            'respuesta' => 'Una moneda'
         ]
     ],
     'dificil' => [
@@ -56,14 +40,6 @@ $adivinanzas = [
         [
             'pregunta' => '¿Qué se hace más grande cuando se elimina?',
             'respuesta' => 'Un agujero'
-        ],
-        [
-            'pregunta' => '¿Qué puede viajar alrededor del mundo mientras permanece en la esquina?',
-            'respuesta' => 'Un sello'
-        ],
-        [
-            'pregunta' => '¿Qué se puede romper sin tocarlo?',
-            'respuesta' => 'Una promesa'
         ]
     ]
 ];
