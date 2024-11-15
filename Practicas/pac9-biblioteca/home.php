@@ -79,7 +79,7 @@ $fotoPerfil = $_SESSION['sesionIniciada']['fotoDePerfil'];
                         <!-- Botones de editar y eliminar (solo visibles para el admin) -->
                         <?php if ($role == 'admin'): ?>
                             <div class="card-footer d-flex justify-content-between">
-                                <a href="edit_book.php?id=<?php echo $libro['id']; ?>" class="btn btn-outline-primary btn-sm">
+                                <a href="add_edit_book.php?id=<?php echo $libro['id']; ?>" class="btn btn-outline-primary btn-sm">
                                     <i class="fas fa-edit"></i> Editar
                                 </a>
                                 <a href="delete_book.php?id=<?php echo $libro['id']; ?>" class="btn btn-outline-danger btn-sm">
