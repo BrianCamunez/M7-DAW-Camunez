@@ -1,29 +1,39 @@
 <?php
+
 session_start();
-function agregarLibro($titulo,$autor,$imagen,$descripcion){
+function agregarLibro($nombre,$autor,$foto,$descripcion){
     $id_libro = count($_SESSION['libros']) + 1; 
     $nuevo_libro = [
         'id' => $id_libro,
-        'titulo' => $titulo,
+        'nombre' => $nombre,
         'autor' => $autor,
-        'imagen' => $imagen,
+        'foto' => $foto,
         'descripcion' => $descripcion
     ];
     $_SESSION['libros'][] = $nuevo_libro;
-    var_dump($_SESSION['libros']);
 }
 
-function editarLibro($id_libro, $titulo, $autor, $imagen, $descripcion) {
+function editarLibro($id_libro, $titulo, $autor, $foto, $descripcion) {
     $id_libro--;
     if (isset($_SESSION['libros'][$id_libro])) {
-        $_SESSION['libros'][$id_libro] = ["titulo" => $titulo, "autor" => $autor, "imagen" => $imagen, "descripcion" => $descripcion];
+            $_SESSION['libros'][$id_libro] = ["nombre" => $titulo, "autor" => $autor, "foto" => $foto, "descripcion" => $descripcion];
     }else{
         echo "El libro con el ID $id_libro no existe.";
     }
-    var_dump($_SESSION['libros']);
 }
 
-function eliminarLibro(){
+function eliminarLibro($id_libro){
+   $_SESSION['libros'] = array_map(function($libro) use ($id_libro){
+    if($libro['id']==$id_libro){
+        return null;
+    }
+    return $libro;
+   },$_SESSION['libros']);
+   
+   $_SESSION['libros']  = array_filter($_SESSION['libros'], function($libro){
+    return $libro!=null;
+   });
+   $_SESSION['libros'] = array_values($_SESSION['libros']);
 }
 
 ?>

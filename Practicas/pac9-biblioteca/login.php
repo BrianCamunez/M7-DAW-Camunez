@@ -16,7 +16,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                 'fotoDePerfil' => $_POST['FotoPerfil']
             ];
             $usuario_autenticado = true; 
-            header("Location: home.php");
+            header("Location: arrayLibros.php");
             exit();
         }
     }

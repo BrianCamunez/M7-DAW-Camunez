@@ -7,12 +7,17 @@ if (!isset($_SESSION['sesionIniciada'])) {
     exit(); 
 }
 
-include_once("arrayLibros.php");
-
 $username = $_SESSION['sesionIniciada']['username'];
 $role = $_SESSION['sesionIniciada']['role'];
 $fotoPerfil = $_SESSION['sesionIniciada']['fotoDePerfil'];
 
+$libros = isset($_SESSION['libros']) ? $_SESSION['libros'] : [];
+
+if($_SESSION['libros']!==null){
+    $libros=$_SESSION['libros'];
+}else{
+    $_SESSION['libros'] = [];
+}
 
 ?>
 
@@ -42,7 +47,7 @@ $fotoPerfil = $_SESSION['sesionIniciada']['fotoDePerfil'];
                     ?>
                 </div>
             </div>
-            <a href="" class="btn btn-warning btn-sm">
+            <a href="logout.php" class="btn btn-warning btn-sm">
                Cerrar sesión ❌
             </a>
         </div>
@@ -68,7 +73,7 @@ $fotoPerfil = $_SESSION['sesionIniciada']['fotoDePerfil'];
 
         <!-- Mostrar lista de libros en un grid de tarjetas con tamaño uniforme -->
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-            <?php foreach ($libros as $libro): ?>
+            <?php foreach ($_SESSION['libros'] as $libro): ?>
                 <div class="col">
                     <div class="card h-100 shadow-sm">
                         <img src="<?php echo $libro['foto']; ?>" class="card-img-top" alt="<?php echo $libro['nombre']; ?>" style="height: 400px; object-fit: cover;">
@@ -92,7 +97,6 @@ $fotoPerfil = $_SESSION['sesionIniciada']['fotoDePerfil'];
             <?php endforeach; ?>
         </div>
     </div>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>

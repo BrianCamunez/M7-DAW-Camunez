@@ -27,7 +27,11 @@ $libros = [
 ];
 
 
-$_SESSION['libros'] = $libros;
+if($_SESSION['libros']==null){
+    $libros=$_SESSION['libros'];
+}
+
+header("Location:home.php");
 
 ?>
 

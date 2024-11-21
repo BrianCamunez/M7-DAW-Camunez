@@ -27,17 +27,19 @@ if (isset($_GET['id'])) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $titulo = $_POST['titulo'];
+    $nombre = $_POST['nombre'];
     $autor = $_POST['autor'];
-    $imagen = $_POST['imagen'];
+    $foto = $_POST['foto'];
     $descripcion = $_POST['descripcion'];
 
     if ($editando) {
         // Si estamos editando, actualizamos el libro en la sesión
-        editarLibro($id_libro, $titulo, $autor, $imagen, $descripcion);
+        editarLibro($id_libro, $nombre, $autor, $foto, $descripcion);
+        header("Location: home.php");
     } else {
         // Si estamos agregando, creamos un nuevo libro
-        agregarLibro($titulo, $autor, $imagen, $descripcion);
+        agregarLibro($nombre, $autor, $foto, $descripcion);
+        header("Location: home.php");
     }
 
 }
@@ -75,16 +77,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         <form method="POST" class="mx-auto" style="max-width: 600px;">
             <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="titulo" name="titulo" value="<?php if($editando == true){echo $nombreLibro;} ?>" placeholder="Título" required>
-                <label for="titulo">Título</label>
+                <input type="text" class="form-control" id="nombre" name="nombre" value="<?php if($editando == true){echo $nombreLibro;} ?>" placeholder="Título" required>
+                <label for="nombre">Título</label>
             </div>
             <div class="form-floating mb-3">
                 <input type="text" class="form-control" id="autor" name="autor" value="<?php if($editando == true){echo $autorLibro;} ?>" placeholder="Autor" required>
                 <label for="autor">Autor</label>
             </div>
             <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="imagen" name="imagen" value="<?php if($editando == true){echo $fotoLibro;} ?>" placeholder="URL de la Imagen">
-                <label for="imagen">URL de la Imagen</label>
+                <input type="text" class="form-control" id="foto" name="foto" value="<?php if($editando == true){echo $fotoLibro;} ?>" placeholder="URL de la Imagen">
+                <label for="foto">URL de la Imagen</label>
             </div>
             <div class="form-floating mb-4">
                 <textarea class="form-control" id="descripcion" name="descripcion" placeholder="Descripción" style="height: 150px;"><?php if($editando == true){echo $descripcionLibro;} ?></textarea>
