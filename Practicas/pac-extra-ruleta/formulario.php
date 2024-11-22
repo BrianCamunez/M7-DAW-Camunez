@@ -23,7 +23,7 @@
         <div class="row">
             <div class="col">
                 <h1>Formulario de Apuestas</h1>
-                <form action="ruleta.php">
+                <form action="ruleta.php" method="post">
                     <div id="divApuesta">
                         <div class="mb-3">
                             <label for="TipoDeApuesta" class="form-label">Tipo de Apuesta</label>
