@@ -298,12 +298,40 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         .card-body {
             font-size: 1rem;
         }
+        
+        .girar {
+            width: 200px; 
+            height: auto;
+            animation: girar 3s linear infinite;
+        }
+
+        @keyframes girar {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+            transform: rotate(360deg);
+            }
+        }
+        
+        img {
+            max-height: 350px;
+            width: 400px;
+        }
     </style>
 </head>
 <body>
 
 <div class="container mt-5">
-    <div class="row justify-content-center">
+<div class="row align-items-center pag">
+      <div class="col-6 text-center">
+        <img src="https://masinogames.com/wp-content/uploads/2021/05/roulette-wheel_eu.png" alt="Ruleta" class="img-fluid girar" />
+      </div>
+      <div class="col-6 text-center">
+        <img src="https://www.casino.es/imagenes/juegos/ruleta/tapete-ruleta-americana.png" alt="Tapete" class="img-fluid" />
+      </div>
+    </div>
+    <div class="row justify-content-center mt-5">
         <div class="col-12 col-md-8 col-lg-6">
             
             <!-- Card para mostrar los detalles -->
