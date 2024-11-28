@@ -14,12 +14,14 @@ include_once "usuarios.php";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'];
     $password = $_POST['password'];
+    $dinero = $_POST['dinero'];
 
     // Verificamos si el correo existe en la lista de usuarios
     if (isset($usuarios[$email]) && $usuarios[$email]['contraseña'] === $password) {
         // Si las credenciales son correctas, guardamos los datos en la sesión
         $_SESSION['usuario'] = $usuarios[$email]['nombre'];
         $_SESSION['email'] = $email;
+        $_SESSION['dinero'] = $dinero;
 
         // Redirigimos al usuario a la página principal (formulario.php)
         header("Location: formulario.php");
@@ -53,6 +55,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">Contraseña</label>
                     <input type="password" class="form-control" id="exampleInputPassword1" name="password" required>
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputDinero1" class="form-label">Dinero para apostar:</label>
+                    <input type="number" class="form-control" id="exampleInputDinero1" name="dinero" required>
                 </div>
                 <button type="submit" class="btn btn-primary">Iniciar sesión</button>
                 <div class="row">

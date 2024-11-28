@@ -50,7 +50,28 @@ function actualizarApuestas() {
         valorApuestaSelect.innerHTML += `<option value="11">Seisena 11 (31, 32, 33, 34, 35, 36)</option>`;
         break;
       case "Cuadro":
-        22
+        valorApuestaSelect.innerHTML += `<option value="1">Cuadro 1 (1, 2, 4, 5)</option>`;
+        valorApuestaSelect.innerHTML += `<option value="2">Cuadro 2 (2, 3, 5, 6)</option>`;
+        valorApuestaSelect.innerHTML += `<option value="3">Cuadro 3 (4, 5, 7, 8)</option>`;
+        valorApuestaSelect.innerHTML += `<option value="4">Cuadro 4 (5, 6, 8, 9)</option>`;
+        valorApuestaSelect.innerHTML += `<option value="5">Cuadro 5 (7, 8, 10, 11)</option>`;
+        valorApuestaSelect.innerHTML += `<option value="6">Cuadro 6 (8, 9, 11, 12)</option>`;
+        valorApuestaSelect.innerHTML += `<option value="7">Cuadro 7 (10, 11, 13, 14)</option>`;
+        valorApuestaSelect.innerHTML += `<option value="8">Cuadro 8 (11, 12, 14, 15)</option>`;
+        valorApuestaSelect.innerHTML += `<option value="9">Cuadro 9 (13, 14, 16, 17)</option>`;
+        valorApuestaSelect.innerHTML += `<option value="10">Cuadro 10 (14, 15, 17, 18)</option>`;
+        valorApuestaSelect.innerHTML += `<option value="11">Cuadro 11 (16, 17, 19, 20)</option>`;
+        valorApuestaSelect.innerHTML += `<option value="12">Cuadro 12 (17, 18, 20, 21)</option>`;
+        valorApuestaSelect.innerHTML += `<option value="13">Cuadro 13 (19, 20, 22, 23)</option>`;
+        valorApuestaSelect.innerHTML += `<option value="14">Cuadro 14 (20, 21, 23, 24)</option>`;
+        valorApuestaSelect.innerHTML += `<option value="15">Cuadro 15 (22, 23, 25, 26)</option>`;
+        valorApuestaSelect.innerHTML += `<option value="16">Cuadro 16 (23, 24, 26, 27)</option>`;
+        valorApuestaSelect.innerHTML += `<option value="17">Cuadro 17 (25, 26, 28, 29)</option>`;
+        valorApuestaSelect.innerHTML += `<option value="18">Cuadro 18 (26, 27, 29, 30)</option>`;
+        valorApuestaSelect.innerHTML += `<option value="19">Cuadro 19 (28, 29, 31, 32)</option>`;
+        valorApuestaSelect.innerHTML += `<option value="20">Cuadro 20 (29, 30, 32, 33)</option>`;
+        valorApuestaSelect.innerHTML += `<option value="21">Cuadro 21 (31, 32, 34, 35)</option>`;
+        valorApuestaSelect.innerHTML += `<option value="22">Cuadro 22 (32, 33, 35, 36)</option>`;
         break;
       case "Transversal":
         for (let i = 0; i < 2; i++) {

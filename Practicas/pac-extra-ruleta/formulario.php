@@ -1,6 +1,8 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,16 +20,48 @@
 </head>
 
 <body>
-    <a href="cerrarSesion.php"><button class="btn">cerrar sesion</button></a>
+    <a href="cerrarSesion.php"><button class="btn border rounded-3 bg-warning">cerrar sesion</button></a>
     <div class="container">
         <div class="row">
             <div class="col">
+            <h1>Dinero: <?php echo $_SESSION['dinero']; ?>€</h1>
+                <h1>Registro de apuestas:</h1>
+
+                <!-- Mostrar el historial de apuestas -->
+                <?php if ($_SESSION['apuestas'] != null): ?>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Tipo de Apuesta</th>
+                                <th>Valor de Apuesta</th>
+                                <th>Cantidad Apostada</th>
+                                <th>Número Ganador</th>
+                                <th>Ganancia</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach ($_SESSION['apuestas'] as $apuestaData): ?>
+                                <tr>
+                                    <td><?php echo $apuestaData['tipoApuesta']; ?></td>
+                                    <td><?php echo $apuestaData['valorApuesta']; ?></td>
+                                    <td><?php echo $apuestaData['cantidadDinero']; ?>€</td>
+                                    <td><?php echo $apuestaData['numeroGanador']; ?></td>
+                                    <td><?php echo number_format($apuestaData['ganancia']); ?>€</td>
+                                </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                <?php else: ?>
+                    <p>No has realizado ninguna apuesta aún.</p>
+                <?php endif; ?>
+
+                <hr>
                 <h1>Formulario de Apuestas</h1>
                 <form action="ruleta.php" method="post">
                     <div id="divApuesta">
                         <div class="mb-3">
                             <label for="TipoDeApuesta" class="form-label">Tipo de Apuesta</label>
-                            <select class="form-select" aria-label="Default select example" id="TipoDeApuesta" onchange="actualizarApuestas()">
+                            <select class="form-select" aria-label="Default select example" name="TipoDeApuesta" id="TipoDeApuesta" onchange="actualizarApuestas()">
                                 <option selected>Elige la apuesta</option>
                                 <option value="Rojo/Negro">Rojo/Negro</option>
                                 <option value="Par/Impar">Par/Impar</option>
@@ -45,7 +79,7 @@
                         </div>
                         <div class="mb-3" id="seleccionaApuesta" style="display: none;">
                             <label for="ValorApuesta" class="form-label">Valor de la Apuesta</label>
-                            <select class="form-select" id="ValorApuesta">
+                            <select class="form-select" id="ValorApuesta" name="ValorApuesta">
                             </select>
                         </div>
                          <div class="mb-3" id="ayudaApuesta1" style="display: none;">
@@ -60,7 +94,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="CantidadDinero" class="form-label">Cantidad de dinero (€)</label>
-                            <input type="number" class="form-control" id="CantidadDinero" placeholder="¿Cantidad de dinero?" required>
+                            <input type="number" class="form-control" name="CantidadDinero" id="CantidadDinero" placeholder="¿Cantidad de dinero?" required>
                         </div>
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </div>

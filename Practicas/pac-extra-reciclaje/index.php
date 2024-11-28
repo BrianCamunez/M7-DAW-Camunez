@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-include 'actions.php';
+include_once 'actions.php';
 
 if (!isset($_SESSION['basura'])) {
     $tiposBasura = ['paper', 'glass', 'organic', 'plastic'];
