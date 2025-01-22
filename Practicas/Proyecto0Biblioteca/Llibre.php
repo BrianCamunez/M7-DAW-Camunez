@@ -15,8 +15,18 @@ class Llibre
         $this->foto = $foto;
     }
 
-    public function informacion(){
-        return "El llibre ". $this->titol. " escrit per ". $this->autor. " i publicat en ". $this->anyPublicacio;
+    public function card() {
+        return '
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="' . $this->foto . '" class="card-img-top" alt="Portada de ' . $this->titol . '" style="height: 300px; object-fit: cover;">
+                    <div class="card-body">
+                        <h5 class="card-title">' . $this->titol . '</h5>
+                        <p class="card-text">Autor: ' . $this->autor . '</p>
+                        <p class="card-text">Publicado en: ' . $this->anyPublicacio . '</p>
+                    </div>
+                </div>
+            </div>';
     }
 
 }

@@ -23,12 +23,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['titol'])) {
 
 }
 
-$informacionBusqueda = "";
-if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['tituloBusca'])) {
-    $tituloBusca = $_GET['tituloBusca'];
-    $informacionBusqueda = $biblioteca->cercarLlibre($tituloBusca);
-}
-
 ?>
 
 <!DOCTYPE html>
@@ -63,24 +57,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['tituloBusca'])) {
                     <input class="form-control" type="text" name="tituloBusca" id="tituloBusca" required>
                     <input class="btn btn-secondary mt-2" type="submit" value="Buscar">
                 </form>
+
                 <h3 class="mt-3">Resultado de la búsqueda:</h3>
-                <?php if ($informacionBusqueda): ?>
+                <?php if (isset($_GET['tituloBusca'])){
+                    $titolBusca = $_GET['tituloBusca'];
+                    $informacionBusqueda = $biblioteca->cercarLlibre($titolBusca);
+                }
+                    if (count($informacionBusqueda) > 0):
+                ?>
                 <div class="row">
+                    <?php foreach ($informacionBusqueda as $llibre): ?>
                     <div class="col-md-4 mb-4">
                         <div class="card">
                             <!-- Mostrar la imagen del libro -->
-                            <img src="<?php echo $informacionBusqueda['foto']; ?>" class="card-img-top" alt="Portada de <?php echo $informacionBusqueda['titol']; ?>" style="height: 300px; object-fit: cover;">
+                            <img src="<?php echo $llibre->foto; ?>" class="card-img-top" alt="Portada de <?php echo $llibre->titol; ?>" style="height: 300px; object-fit: cover;">
                             <div class="card-body">
-                            <!-- Mostrar el título, autor y año -->
-                                <h5 class="card-title"><?php echo $informacionBusqueda['titol']; ?></h5>
-                                <p class="card-text">Autor: <?php echo $informacionBusqueda['autor']; ?></p>
-                                <p class="card-text">Publicado en: <?php echo $informacionBusqueda['anyPublicacio']; ?></p>
+                                <!-- Mostrar el título, autor y año -->
+                                <h5 class="card-title"><?php echo $llibre->titol; ?></h5>
+                                <p class="card-text">Autor: <?php echo $llibre->autor; ?></p>
+                                <p class="card-text">Publicado en: <?php echo $llibre->anyPublicacio; ?></p>
                             </div>
                         </div>
                     </div>
+                    <?php endforeach; ?>
                 </div>
                 <?php else: ?>
-                    <p>No se encontró el libro.</p>
+                <p>No se encontró el libro.</p>
                 <?php endif; ?>
             </div>
         </div>
