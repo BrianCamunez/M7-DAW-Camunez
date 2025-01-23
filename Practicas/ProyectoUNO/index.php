@@ -1,17 +1,26 @@
 <?php
+session_start();  // Inicia la sesión
 
-include_once("./carta.class.php");
+include_once "./partida.class.php";  // Incluye la clase de la partida
 
-include_once("./baraja.class.php");
+// Verificamos si se han enviado los datos del formulario
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    if (isset($_POST['jugadores']) && isset($_POST['cartas_por_jugador'])) {
+        // Obtenemos el número de jugadores y cartas por jugador
+        $numJugadores = $_POST['jugadores'];
+        $cartasPorJugador = $_POST['cartas_por_jugador'];
 
-$carta = new Carta("blue", "0", 1);
+        // Creamos la partida con esos datos
+        $partida = new Partida($numJugadores, $cartasPorJugador);
 
-$baraja = new Baraja();
+        // Guardamos la partida en la sesión para mantener el estado
+        $_SESSION['partida'] = serialize($partida);  // Serializamos el objeto para guardarlo en sesión
 
-print_r($carta);
-
-
-
+        // Redirigimos al usuario al archivo que muestra la partida
+        header('Location: iniciar_partida.php');
+        exit();
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -47,7 +56,7 @@ print_r($carta);
     <div class="row justify-content-center">
         <div class="col-md-6">
             <h1 class="text-center mt-5">Formulario para iniciar la partida</h1>
-            <form action="iniciar_partida.php" method="POST" class="mt-4">
+            <form action="index.php" method="POST" class="mt-4">
                 <div class="mb-3">
                     <label for="jugadores" class="form-label">Número de jugadores:</label>
                     <input type="number" id="jugadores" name="jugadores" class="form-control" min="2" max="10" required>
