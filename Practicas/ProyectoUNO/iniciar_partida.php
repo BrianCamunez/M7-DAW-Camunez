@@ -11,6 +11,12 @@ if (isset($_SESSION['partida'])) {
 } else {
     echo "No se ha encontrado ninguna partida. Por favor, inicia una partida desde el formulario.";
 }
+
+if (isset($_POST['color'])) {
+    $_SESSION['colorSeleccionado'] = $_POST['color'];  // Guardamos el color en la sesión
+    unset($_SESSION['mostrarModalColor']);
+    $partida->carta_en_mesa->color = $_SESSION['colorSeleccionado'];
+}
 ?>
 
 <!DOCTYPE html>
@@ -54,6 +60,41 @@ if (isset($_SESSION['partida'])) {
             width: 80px;
             height: 120px;
         }
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1;
+            padding-top: 60px;
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 300px;
+        }
+
+        .close {
+            color: #aaa;
+            font-size: 28px;
+            font-weight: bold;
+            position: absolute;
+            right: 10px;
+            top: 0;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -62,6 +103,40 @@ if (isset($_SESSION['partida'])) {
     <?php
     if (isset($partida)) {
         $partida->jugar();
+    }
+    ?>
+    <div class="modal" style="display: <?php echo isset($_SESSION['mostrarModalColor']) && $_SESSION['mostrarModalColor'] ? 'block' : 'none'; ?>;">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h3>¡Ha salido una carta que cambia el color! Elige un color:</h3>
+
+        <form method="POST">
+            <label>
+                <input type="radio" name="color" value="Rojo" <?php echo (isset($_SESSION['colorSeleccionado']) && $_SESSION['colorSeleccionado'] == 'Rojo') ? 'checked' : ''; ?>>
+                Rojo
+            </label><br>
+            <label>
+                <input type="radio" name="color" value="Azul" <?php echo (isset($_SESSION['colorSeleccionado']) && $_SESSION['colorSeleccionado'] == 'Azul') ? 'checked' : ''; ?>>
+                Azul
+            </label><br>
+            <label>
+                <input type="radio" name="color" value="Verde" <?php echo (isset($_SESSION['colorSeleccionado']) && $_SESSION['colorSeleccionado'] == 'Verde') ? 'checked' : ''; ?>>
+                Verde
+            </label><br>
+            <label>
+                <input type="radio" name="color" value="Amarillo" <?php echo (isset($_SESSION['colorSeleccionado']) && $_SESSION['colorSeleccionado'] == 'Amarillo') ? 'checked' : ''; ?>>
+                Amarillo
+            </label><br><br>
+
+            <button type="submit">Seleccionar color</button>
+        </form>
+    </div>
+</div>
+
+    <?php
+    // Mostrar el color elegido después de cerrar el modal
+    if (isset($_SESSION['colorSeleccionado'])) {
+        echo "<p>El color seleccionado es: <strong>{$_SESSION['colorSeleccionado']}</strong></p>";
     }
     ?>
 

@@ -117,10 +117,6 @@ class Partida
 
         echo "<hr>";
         echo "<p><strong>Es el turno del Jugador " . ($this->turno + 1) . "</strong></p>";
-        echo "<form method='POST'>";
-        echo "<button type='submit' name='accion' value='robar'>Robar carta</button>";
-        echo "<button type='submit' name='accion' value='tirar'>Tirar carta</button>";
-        echo "</form>";
         $ganador = $this->verificar_ganador();
         if ($ganador != -1) {
             // Si hay un ganador, mostramos el mensaje y terminamos la partida
@@ -154,6 +150,28 @@ class Partida
         $_SESSION['partida'] = serialize($this);
     }
 
+    public function sumar_cartas($numero) {
+        for ($i = 0; $i < $numero; $i++) {
+            if (count($this->baraja->conjunto_cartas) > 0) {
+                // Cálculo del turno siguiente con sentido antihorario
+                $turnoSiguiente = $this->turno + $this->constante_sentido;
+                
+                // Si el turno siguiente es negativo, lo corregimos para que se mueva de forma circular
+                if ($turnoSiguiente < 0) {
+                    $turnoSiguiente = $this->numero_jugadores - 1;
+                } else if ($turnoSiguiente >= $this->numero_jugadores) {
+                    $turnoSiguiente = 0;
+                }
+                
+                // Robar una carta y asignarla al siguiente jugador
+                $this->array_jugadores[$turnoSiguiente][] = array_shift($this->baraja->conjunto_cartas);
+            }
+        }
+    
+        // Guarda los datos actualizados de la partida en la sesión
+        $_SESSION['partida'] = serialize($this);
+    }
+
     public function tirar_carta($indice_carta) {
         $jugador = $this->array_jugadores[$this->turno];
         $carta_jugador = $jugador[$indice_carta]; // Obtenemos la carta seleccionada
@@ -165,6 +183,8 @@ class Partida
     
             // Ponemos la carta en la mesa
             $this->carta_en_mesa = $carta_jugador;
+
+            $this->aplicar_efecto($carta_jugador);
     
             // Cambiar turno (después de tirar la carta válida)
             $this->cambiar_turno();
@@ -177,6 +197,7 @@ class Partida
                 echo "No puedes robar más cartas. El turno se ha saltado.";
                 // Cambiar turno aunque la carta no sea válida
                 $this->cambiar_turno();
+                $this->robadas = 0;
             }
         }
     
@@ -200,6 +221,46 @@ class Partida
         // No hay ganador aún
         return -1;
     }
+
+    public function aplicar_efecto($carta_jugada) {
+        // Dependiendo del valor de la carta, se aplica un efecto especial
+        switch ($carta_jugada->valor) {
+            case 'skip':
+                // El siguiente jugador se salta su turno
+                echo "¡El siguiente jugador se salta su turno!";
+                $this->cambiar_turno();  // Se cambia el turno inmediatamente, saltando al siguiente
+                break;
+            
+            case 'reverse':
+                // Se invierte el sentido de juego
+                $this->constante_sentido = -$this->constante_sentido;
+                echo "¡El sentido del juego ha cambiado!";
+                break;
+    
+            case 'picker':
+                // El jugador tiene que robar cartas
+                $this->sumar_cartas(2);  // Roba 2 cartas
+                echo "¡El jugador ha robado 2 cartas!";
+                break;
+            
+            case 'color':
+            // Se abre una modal para elegir un color
+                $_SESSION['mostrarModalColor'] = true;
+                $_SESSION['carta_color_en_espera'] = $carta_jugada;
+
+                echo "¡Ha salido una carta de cambio de color! Elige un color.";
+                break;
+
+            default:
+                echo "No hay efectos especiales para esta carta.";
+                break;
+        }
+    
+        // Guardar el estado de la partida después de aplicar el efecto
+        $_SESSION['partida'] = serialize($this);
+    }
+
+    
 
 }
 

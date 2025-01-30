@@ -22,6 +22,7 @@ class Baraja
                 $this->conjunto_cartas[] = new Carta($color, 'reverse', $index++);
                 $this->conjunto_cartas[] = new Carta($color, 'skip', $index++);
                 $this->conjunto_cartas[] = new Carta($color, 'picker', $index++);
+                $this->conjunto_cartas[] = new Carta('changer', 'color', $index++);
             }
     }
 
