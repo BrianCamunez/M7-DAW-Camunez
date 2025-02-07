@@ -9,18 +9,16 @@
 </head>
 <body>
     <div class="container mt-5">
-        <h1 class="text-center">Patrons Estructurals</h1>
+        <h1 class="text-center">Patrons Creacionals</h1>
         <p class="text-center">Els patrons estructurals defineixen com es poden compondre classes i objectes per formar estructures més grans.</p>
         <form method="POST" action="redirigir.php">
             <select name="patro" class="form-select">
                 <option value="" selected disabled>Selecciona un patró</option>
-                <option value="adapter">Adapter</option>
-                <option value="bridge">Bridge</option>
-                <option value="composite">Composite</option>
-                <option value="decorator">Decorator</option>
-                <option value="facade">Facade</option>
-                <option value="flyweight">Flyweight</option>
-                <option value="proxy">Proxy</option>
+                <option value="factoryMethod">Factory Method</option>
+                    <option value="abstractFactory">Abstract Factory</option>
+                <option value="builder">Builder</option>
+                <option value="prototype">Prototype</option>
+                <option value="singleton">Singleton</option>
             </select>
             <button type="submit" class="btn btn-primary mt-2">Veure Patró</button>
         </form>
