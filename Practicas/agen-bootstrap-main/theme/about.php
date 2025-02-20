@@ -1,3 +1,13 @@
+<?php
+
+require_once 'config.php';
+
+$consultaTestimonials = $conn->query("SELECT * FROM TESTIMONIALS");
+
+$testimonialsArray = mysqli_fetch_all($consultaTestimonials, MYSQLI_ASSOC);
+
+?>
+
 <!DOCTYPE html>
 
 <!--
@@ -224,56 +234,23 @@
     <div class="row bg-contain" data-background="images/banner/brush.png">
       <div class="col-lg-8 col-md-10 mx-auto">
         <div id="slider" class="ui-card-slider bg-contain">
-          <div class="slide">
-            <div class="card text-center">
-              <div class="card-body px-5 py-4">
-                <img src="images/testimonial/user-1.jpg" alt="user-1" class="img-fluid rounded-circle mb-4">
-                <h4 class="text-secondary">Mellissa Christine</h4>
-                <p>“Great work I got a lot more than what I ordered, they are very legítimas and catchy. I went for one
-                  of them for my brand but is always better to have more options.”</p>
-              </div>
-            </div>
-          </div>
-          <div class="slide">
-            <div class="card text-center">
-              <div class="card-body px-5 py-4">
-                <img src="images/testimonial/user-1.jpg" alt="user-1" class="img-fluid rounded-circle mb-4">
-                <h4 class="text-secondary">Mellissa Christine</h4>
-                <p>“Great work I got a lot more than what I ordered, they are very legítimas and catchy. I went for one
-                  of them for my brand but is always better to have more options.”</p>
-              </div>
-            </div>
-          </div>
-          <div class="slide">
-            <div class="card text-center">
-              <div class="card-body px-5 py-4">
-                <img src="images/testimonial/user-1.jpg" alt="user-1" class="img-fluid rounded-circle mb-4">
-                <h4 class="text-secondary">Mellissa Christine</h4>
-                <p>“Great work I got a lot more than what I ordered, they are very legítimas and catchy. I went for one
-                  of them for my brand but is always better to have more options.”</p>
-              </div>
-            </div>
-          </div>
-          <div class="slide">
-            <div class="card text-center">
-              <div class="card-body px-5 py-4">
-                <img src="images/testimonial/user-1.jpg" alt="user-1" class="img-fluid rounded-circle mb-4">
-                <h4 class="text-secondary">Mellissa Christine</h4>
-                <p>“Great work I got a lot more than what I ordered, they are very legítimas and catchy. I went for one
-                  of them for my brand but is always better to have more options.”</p>
-              </div>
-            </div>
-          </div>
-          <div class="slide">
-            <div class="card text-center">
-              <div class="card-body px-5 py-4">
-                <img src="images/testimonial/user-1.jpg" alt="user-1" class="img-fluid rounded-circle mb-4">
-                <h4 class="text-secondary">Mellissa Christine</h4>
-                <p>“Great work I got a lot more than what I ordered, they are very legítimas and catchy. I went for one
-                  of them for my brand but is always better to have more options.”</p>
-              </div>
-            </div>
-          </div>
+          <?php
+
+            foreach($testimonialsArray as $testimonial){
+              echo '
+                <div class="slide">
+                  <div class="card text-center">
+                    <div class="card-body px-5 py-4" style="">
+                      <img style="width: 116px" src=" '. $testimonial['imatge'] .' " alt="user-1" class=" rounded-circle mb-4 ">
+                      <h4 class="text-secondary"> ' . $testimonial['name'] . ' ' .  $testimonial['surname'] .' </h4>
+                      <p>“'. $testimonial['description']  .'”</p>
+                    </div>
+                  </div>
+                </div>
+              ';
+            }
+
+          ?>
         </div>
       </div>
     </div>
