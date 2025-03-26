@@ -117,7 +117,7 @@ $newsArray = mysqli_fetch_all($consultaNews, MYSQLI_ASSOC);
                 <img src="' .  $new['thumbmail'] . '" alt="post-thumb" class="card-img-top mb-2">
                 <div class="card-body p-0">
                   <time>' .  $new['new_date'] . '</time>
-                  <a href="blog-single.php" class="h4 card-title d-block my-3 text-dark hover-text-underline">' .  $new['title'] . '</a>
+                  <a href="blog-single.php?id=' . $new['id'] . '" class="h4 card-title d-block my-3 text-dark hover-text-underline">' .  $new['title'] . '</a>
                   <a href="blog-single.php" class="h5 card-title d-block my-3 text-dark hover-text-underline">' .  $new['subtitle'] . '</a>
                   <a href="blog-single.php" class="btn btn-transparent">Read more</a>
                 </div>

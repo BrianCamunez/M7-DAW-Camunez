@@ -2,6 +2,8 @@
 
 require_once 'config.php';
 
+session_start();
+
 $consultaProyectos = $conn->query("SELECT * FROM PROJECTS");
 
 $proyectosArray = mysqli_fetch_all($consultaProyectos, MYSQLI_ASSOC);
@@ -95,6 +97,24 @@ $newsArray = mysqli_fetch_all($consultaNews, MYSQLI_ASSOC);
           <li class="nav-item">
             <a class="nav-link" href="contact.php">Contact</a>
           </li>
+          <?php
+          if(isset($_SESSION["user_id"])){
+            echo "<li><a class='nav-link' href='cerrarSesion.php'>Cerrar sesion</a></li>";
+          }else {
+            echo "<li>
+            <a href='login.php' class='btn btn-primary'>Login</a>
+          </li>
+          <li>
+            <a href='register.php' class='btn btn-primary'>Register</a>
+          </li>";
+          }
+
+          if($_SESSION['user_rol'] == "admin"){
+            echo "<li><a class='nav-link' href='../admin/panelAdmin.php'>panel admin</a></li>";
+          }
+
+          ?>
+          <li><a href="./admin/panelAdmin.php">eoeoeoeooe</a></li>
         </ul>
       </div>
     </nav>
