@@ -16,9 +16,40 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $edad = $_POST['edad'];
     $rol = $_POST['rol'];
 
+    // Manejo del avatar
+    if (isset($_FILES['avatar']) && $_FILES['avatar']['error'] === UPLOAD_ERR_OK) {
+        $uploadDir = 'uploads/';
+
+        $fileTmpPath = $_FILES['avatar']['tmp_name'];
+        $fileName = $_FILES['avatar']['name'];
+        $fileNameCmps = explode(".", $fileName);
+        $fileExtension = strtolower(end($fileNameCmps));
+
+        $allowedExtensions = ['jpg', 'jpeg', 'png', 'gif'];
+
+        if (in_array($fileExtension, $allowedExtensions)) {
+            $newFileName = md5(time() . $fileName) . '.' . $fileExtension;
+            $destPath = $uploadDir . $newFileName;
+
+            if (move_uploaded_file($fileTmpPath, $destPath)) {
+                // Si el avatar se sube correctamente, almacenamos la ruta
+                $avatarPath = $destPath;
+            } else {
+                die('Error: No se pudo mover el archivo a la carpeta de destino.');
+            }
+        } else {
+            die('Error: Solo se permiten archivos de imagen (jpg, jpeg, png, gif).');
+        }
+    } else {
+        // Si no se subió un avatar, no asignamos uno
+        $avatarPath = null;
+    }
+
+    $fechaRegistro = date('Y-m-d');
+
     // Preparar la consulta para evitar inyección SQL
-    $consultaUsuario = $conn->prepare("INSERT INTO USERS (name, surname, email, age, rol) VALUES (?, ?, ?, ?, ?)");
-    $consultaUsuario->bind_param("sssds", $nombre, $apellido, $email, $edad, $rol);
+    $consultaUsuario = $conn->prepare("INSERT INTO USERS (name, surname, email, age, rol, date_register,avatar) VALUES (?, ?, ?, ?, ?, ?, ?)");
+    $consultaUsuario->bind_param("sssdsss", $nombre, $apellido, $email, $edad, $rol, $fechaRegistro, $avatarPath);
     
     if ($consultaUsuario->execute()) {
         header("Location: ./panelAdmin.php"); 
@@ -44,6 +75,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         body {
             background-color: #f8f9fa;
         }
+
         .container {
             max-width: 600px;
             background-color: rgb(192, 189, 189);
@@ -52,6 +84,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             padding: 30px;
             margin-top: 50px;
         }
+
         h2 {
             color: #4e73df;
             text-align: center;
@@ -80,6 +113,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <input type="number" class="form-control" id="edad" name="edad" required>
             </div>
             <div class="mb-3">
+                <label for="avatar" class="form-label">Avatar:</label>
+                <input type="file" class="form-control" id="avatar" name="avatar" accept="image/*">
+                <small class="form-text text-muted">Selecciona una imagen para el avatar del usuario.</small>
+            </div>
+            <div class="mb-3">
                 <label for="rol" class="form-label">Rol:</label>
                 <select class="form-select" id="rol" name="rol" required>
                     <option value="admin">Administrador</option>
@@ -94,4 +132,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

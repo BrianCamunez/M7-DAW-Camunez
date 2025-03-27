@@ -35,11 +35,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Verificar si se ha subido un nuevo avatar
     if (isset($_FILES['avatar']) && $_FILES['avatar']['error'] === UPLOAD_ERR_OK) {
         $uploadDir = 'uploads/';
-        
-        // Asegurar que la carpeta de subida existe
-        if (!is_dir($uploadDir)) {
-            mkdir($uploadDir, 0777, true);
-        }
 
         $fileTmpPath = $_FILES['avatar']['tmp_name'];
         $fileName = $_FILES['avatar']['name'];
