@@ -61,7 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // Ejecutar la consulta
     if($stmt->execute()){
-        echo 'Usuario registrado correctamente';
+        header("Location: index.php");
     } else {
         echo 'Error al registrar el usuario';
     }

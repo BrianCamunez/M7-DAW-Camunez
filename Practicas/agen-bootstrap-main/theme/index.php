@@ -100,8 +100,8 @@ $newsArray = mysqli_fetch_all($consultaNews, MYSQLI_ASSOC);
           </li>
           <?php
 
-          if($_SESSION['user_rol'] == "admin"){
-            echo "<li><a class='nav-link' href='../admin/panelAdmin.php'>panel admin</a></li>";
+          if(isset($_SESSION['user_rol']) && $_SESSION['user_rol'] == "admin"){
+            echo "<li><a class='nav-link' href='./admin/panelAdmin.php'>panel admin</a></li>";
           }
 
           if(isset($_SESSION["user_id"])){

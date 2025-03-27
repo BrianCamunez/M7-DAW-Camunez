@@ -24,6 +24,10 @@ $consultaProjects = $conn->query("SELECT * FROM PROJECTS");
 
 $projectsArray = mysqli_fetch_all($consultaProjects, MYSQLI_ASSOC);
 
+$consultaFaqs = $conn->query("SELECT * FROM FAQS");
+
+$faqsArray = mysqli_fetch_all($consultaFaqs, MYSQLI_ASSOC);
+
 
 
 ?>
@@ -72,6 +76,14 @@ $projectsArray = mysqli_fetch_all($consultaProjects, MYSQLI_ASSOC);
                     <div class="card-body text-center">
                         <h5 class="card-title">Projects</h5>
                         <p class="card-text">Administrar proyectos</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card card-toggle" data-target="faqs">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">FAQS</h5>
+                        <p class="card-text">Administrar FAQS</p>
                     </div>
                 </div>
             </div>
@@ -221,6 +233,35 @@ $projectsArray = mysqli_fetch_all($consultaProjects, MYSQLI_ASSOC);
             <a class="btn btn-success mt-3" href="add_projects.php">Agregar Proyecto</a>
         </div>
 
+         <!-- TABLA FAQS -->
+         <div id="faqs" class="toggle-section d-none">
+            <h4>Preguntas Frecuentes</h4>
+            <table class="table table-bordered table-hover bg-white">
+                <thead class="table-dark">
+                    <tr>
+                        <th>ID</th>
+                        <th>Pregunta</th>
+                        <th>Respuesta</th>
+                        <th style="width: 150px;">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($faqsArray as $faq) {
+                        echo '
+                        <tr>
+                            <td>' . $faq['id'] . '</td>
+                            <td>' . $faq['question'] . '</td>
+                            <td>' . $faq['answer'] . '</td>
+                            <td>
+                                <a href="edit_faqs.php?id=' . $faq['id'] . '" class="btn btn-sm btn-primary">Editar</a>
+                                <a href="delete_faqs.php?id=' . $faq['id'] . '" class="btn btn-sm btn-danger">Eliminar</a>
+                            </td>
+                        </tr>';
+                    } ?>
+                </tbody>
+            </table>
+            <a class="btn btn-success mt-3" href="add_faqs.php">Agregar FAQ</a>
+        </div>
 
     </div>
 
