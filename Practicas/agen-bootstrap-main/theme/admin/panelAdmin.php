@@ -89,6 +89,7 @@ $projectsArray = mysqli_fetch_all($consultaProjects, MYSQLI_ASSOC);
                         <th>Email</th>
                         <th>Rol</th>
                         <th>Edad</th>
+                        <th>Avatar</th>
                         <th>Fecha de Registro</th>
                         <th style="width: 150px;">Acciones</th>
                     </tr>
@@ -103,6 +104,7 @@ $projectsArray = mysqli_fetch_all($consultaProjects, MYSQLI_ASSOC);
                             <td>' . $user['email'] . '</td>
                             <td>' . $user['rol'] . '</td>
                             <td>' . $user['age'] . '</td>
+                            <td>' . $user['avatar'] . '</td>
                             <td>' . $user['date_register'] . '</td>
                             <td>
                                 <a href="edit_user.php?id=' . $user['id'] . '" class="btn btn-sm btn-primary">Editar</a>

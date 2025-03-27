@@ -4,45 +4,74 @@ include_once 'config.php';
 
 session_start();
 
+$uploadDir = 'uploads/';
+
+// Asegurar que la carpeta de subida existe
+if (!is_dir($uploadDir)) {
+    mkdir($uploadDir, 0777, true);
+}
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $nombre = $_POST['nombre'];
     $apellido = $_POST['apellido'];
     $edad = $_POST['edad'];
     $email = $_POST['email'];
     $password = $_POST['password'];
-    
+
+    // Verificar si el archivo fue subido correctamente
+    if(isset($_FILES['avatar']) && $_FILES['avatar']['error'] === UPLOAD_ERR_OK){
+        $fileTmpPath = $_FILES['avatar']['tmp_name'];
+        $fileName = $_FILES['avatar']['name'];
+
+        $fileNameCmps = explode(".", $fileName);
+        $fileExtension = strtolower(end($fileNameCmps));
+
+        $allowedExtensions = ['jpg' , 'jpeg', 'png', 'gif'];
+
+        if(in_array($fileExtension, $allowedExtensions)){
+            $newFileName = md5(time() . $fileName) . '.' . $fileExtension;
+            $dest_path = $uploadDir . $newFileName;
+
+            if(!move_uploaded_file($fileTmpPath, $dest_path)){
+                die('Error: No se pudo mover el archivo a la carpeta de destino');
+            }
+        } else {
+            die('Error: Solo se permiten archivos de imagen (jpg, jpeg, png, gif).');
+        }
+    } else {
+        die('Error: La foto no se subió correctamente. Código de error: ' . $_FILES['avatar']['error']);
+    }
+
+    // Hash de la contraseña
     $passwordHashed = password_hash($password, PASSWORD_DEFAULT);
     $fechaRegistro = date('Y-m-d');
 
+    // Preparar la consulta SQL
     $stmt = $conn->prepare(
-        "INSERT INTO USERS (name, surname, email, password, rol, date_register, age) VALUES (?, ?, ?, ?, 'user', ?, ?)"
+        "INSERT INTO USERS (name, surname, email, password, rol, date_register, age, avatar) 
+        VALUES (?, ?, ?, ?, 'user', ?, ?, ?)"
     );
 
-    // comprobar que la preparacion tuvo exito
-
     if(!$stmt){
-        die('Error en la preparacion de la consulta' . $conn->error);
-        exit;
+        die('Error en la preparación de la consulta: ' . $conn->error);
     }
 
-    // enlazar los parametros
+    // Enlazar parámetros correctamente
+    $stmt->bind_param('sssssis', $nombre, $apellido, $email, $passwordHashed, $fechaRegistro, $edad, $dest_path);
 
-    $stmt->bind_param('sssssi', $nombre, $apellido, $email, $passwordHashed, $fechaRegistro, $edad);
-
-    // ejecutar la consulta
-
+    // Ejecutar la consulta
     if($stmt->execute()){
         echo 'Usuario registrado correctamente';
-    }else{
+    } else {
         echo 'Error al registrar el usuario';
     }
 
-    // cerrar la consulta
- $stmt->close();
+    // Cerrar conexión
+    $stmt->close();
     $conn->close();
 }
-
 ?>
+
 
 <!DOCTYPE html>
 <html lang="es">
@@ -132,7 +161,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 <body>
     <div class="login-container">
-        <form class="login-form" action="#" method="post">
+        <form class="login-form" action="#" method="post" enctype="multipart/form-data">
             <h2>Registrarse</h2>
 
             <div class="input-group">
@@ -160,7 +189,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <input type="password" id="password" name="password" required>
             </div>
 
-            <button type="submit" class="submit-btn">Entrar</button>
+            <div class="input-group">
+                <label for="avatar">Avatar</label>
+                <input type="file" id="avatar" name="avatar" accept="image/*"  required>
+            </div>
+
+            <button type="submit" class="submit-btn">Registrarse</button>
         </form>
     </div>
 </body>

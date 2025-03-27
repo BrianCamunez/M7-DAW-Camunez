@@ -131,6 +131,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <input type="number" class="form-control" id="edad" name="edad" value="<?php echo htmlspecialchars($user['age']); ?>" required>
             </div>
 
+            <div class="mb-3">
+                <label for="avatar" class="form-label">Avatar:</label>
+                <input type="text" class="form-control" id="avatar" name="avatar" value="<?php echo htmlspecialchars($user['avatar']); ?>" required>
+            </div>
+
             <!-- Campo de Rol -->
             <div class="mb-3">
                 <label for="rol" class="form-label">Rol:</label>
