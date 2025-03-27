@@ -45,6 +45,8 @@ $faqsArray = mysqli_fetch_all($consultaFaqs, MYSQLI_ASSOC);
     <div class="container mt-5">
         <h2 class="mb-4">Panel de Administración</h2>
 
+        <a href="../index.php" class="btn btn-sm btn-primary">Volver</a>
+
         <!-- TARJETAS DE SELECCIÓN -->
         <div class="row mb-4">
             <div class="col-md-6">
