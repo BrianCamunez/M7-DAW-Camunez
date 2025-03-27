@@ -1,6 +1,12 @@
 <?php
 require_once "../config.php";
 
+session_start();
+
+if($_SESSION['admin'] != true){
+    header("Location: ../index.php");
+}
+
 // Verificar si se recibió un ID de testimonial para eliminar
 if (isset($_GET['id'])) {
     $testimonialId = $_GET['id'];

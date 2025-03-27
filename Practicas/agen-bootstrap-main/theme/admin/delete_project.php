@@ -1,6 +1,11 @@
 <?php
 require_once "../config.php";
 
+session_start();
+
+if($_SESSION['admin'] != true){
+    header("Location: ../index.php");
+}
 // Verificar si se recibió un ID de proyecto para eliminar
 if (isset($_GET['id'])) {
     $projectId = $_GET['id'];

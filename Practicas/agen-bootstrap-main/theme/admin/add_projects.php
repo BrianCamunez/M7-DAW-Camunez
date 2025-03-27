@@ -1,6 +1,11 @@
 <?php
 require_once "../config.php";
 
+session_start();
+
+if($_SESSION['admin'] != true){
+    header("Location: ../index.php");
+}
 // Verificar si se envió el formulario para crear el proyecto
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Obtener los datos del formulario

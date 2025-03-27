@@ -2,6 +2,12 @@
 
 require_once "../config.php";
 
+session_start();
+
+if($_SESSION['admin'] != true){
+    header("Location: ../index.php");
+}
+
 $consultaUsers = $conn->query("SELECT * FROM USERS");
 
 $usersArray = mysqli_fetch_all($consultaUsers, MYSQLI_ASSOC);

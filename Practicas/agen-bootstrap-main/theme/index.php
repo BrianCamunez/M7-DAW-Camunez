@@ -12,6 +12,12 @@ $consultaNews = $conn->query("SELECT * FROM NEWS ORDER BY new_date ASC limit 3")
 
 $newsArray = mysqli_fetch_all($consultaNews, MYSQLI_ASSOC);
 
+echo $_SESSION['user_rol'];
+
+var_dump($_SESSION['user_rol']);
+
+var_dump($_SESSION['admin']);
+
 ?>
 
 <!DOCTYPE html>
@@ -114,7 +120,6 @@ $newsArray = mysqli_fetch_all($consultaNews, MYSQLI_ASSOC);
           }
 
           ?>
-          <li><a href="./admin/panelAdmin.php">eoeoeoeooe</a></li>
         </ul>
       </div>
     </nav>

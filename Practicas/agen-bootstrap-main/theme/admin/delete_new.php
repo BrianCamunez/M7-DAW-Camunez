@@ -1,6 +1,12 @@
 <?php
 require_once "../config.php";
 
+session_start();
+
+if($_SESSION['admin'] != true){
+    header("Location: ../index.php");
+}
+
 // Verificar si se recibió un ID de noticia para eliminar
 if (isset($_GET['id'])) {
     $newsId = $_GET['id'];

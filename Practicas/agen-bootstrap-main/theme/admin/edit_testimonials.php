@@ -1,6 +1,12 @@
 <?php
 require_once "../config.php";
 
+session_start();
+
+if($_SESSION['admin'] != true){
+    header("Location: ../index.php");
+}
+
 // Verificar si se ha pasado un ID en la URL
 if (isset($_GET['id'])) {
     $testimonialId = $_GET['id'];
@@ -71,7 +77,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
             <div class="d-flex justify-content-center">
                 <button type="submit" class="btn btn-primary me-2">Guardar Cambios</button>
-                <a href="testimonials_list.php" class="btn btn-secondary">Cancelar</a>
+                <a href="./panelAdmin.php" class="btn btn-secondary">Cancelar</a>
             </div>
         </form>
     </div>

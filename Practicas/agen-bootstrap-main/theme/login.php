@@ -20,6 +20,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_SESSION['user_surname'] = $usuario['surname'];
             $_SESSION['user_rol'] = $usuario['rol'];
             $_SESSION['user_id'] = $usuario['id'];
+            if($usuario['rol'] == "admin"){
+                $_SESSION["admin"] = true;
+            }
             // 7. Redirigir al usuario a la pagina de inicio
             header('Location: index.php');
             exit;
