@@ -20,6 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_SESSION['user_surname'] = $usuario['surname'];
             $_SESSION['user_rol'] = $usuario['rol'];
             $_SESSION['user_id'] = $usuario['id'];
+            $_SESSION['avatar'] = $usuario['avatar'];
             if($usuario['rol'] == "admin"){
                 $_SESSION["admin"] = true;
             }

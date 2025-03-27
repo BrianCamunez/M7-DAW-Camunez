@@ -12,11 +12,6 @@ $consultaNews = $conn->query("SELECT * FROM NEWS ORDER BY new_date ASC limit 3")
 
 $newsArray = mysqli_fetch_all($consultaNews, MYSQLI_ASSOC);
 
-echo $_SESSION['user_rol'];
-
-var_dump($_SESSION['user_rol']);
-
-var_dump($_SESSION['admin']);
 
 ?>
 
@@ -104,8 +99,15 @@ var_dump($_SESSION['admin']);
             <a class="nav-link" href="contact.php">Contact</a>
           </li>
           <?php
+
+          if($_SESSION['user_rol'] == "admin"){
+            echo "<li><a class='nav-link' href='../admin/panelAdmin.php'>panel admin</a></li>";
+          }
+
           if(isset($_SESSION["user_id"])){
             echo "<li><a class='nav-link' href='cerrarSesion.php'>Cerrar sesion</a></li>";
+            echo "<img src='" . $_SESSION['avatar'] . "' alt='Avatar' style='width: 50px; height: 50px; border-radius: 50%;'>";
+
           }else {
             echo "<li>
             <a href='login.php' class='btn btn-primary'>Login</a>
@@ -115,9 +117,7 @@ var_dump($_SESSION['admin']);
           </li>";
           }
 
-          if($_SESSION['user_rol'] == "admin"){
-            echo "<li><a class='nav-link' href='../admin/panelAdmin.php'>panel admin</a></li>";
-          }
+    
 
           ?>
         </ul>
